@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+  <h1>Explicación del Método <code>clone()</code> en Java</h1>
+  <div class="explanation">
+    <p>Este fragmento de código está creando un método llamado <code>clone()</code> dentro de una clase. Este método se utiliza para hacer una copia de un objeto de la clase en la que se encuentra.</p>
+    <ol>
+      <li><code>@Override</code>: Esto indica que estamos sobrescribiendo un método de la clase padre o de una interfaz. En este caso, estamos sobrescribiendo el método <code>clone()</code> de la clase <code>Object</code>, que es la clase padre de todas las clases en Java.</li>
+      <li><code>public Object clone() {</code>: Aquí estamos declarando el inicio del método <code>clone()</code>. Este método devuelve un objeto de tipo <code>Object</code>, que es la clase base de todas las clases en Java.</li>
+      <li><code>Profesor obj = null;</code>: Estamos creando una variable <code>obj</code> de tipo <code>Profesor</code> y la inicializamos como <code>null</code>.</li>
+      <li><code>try { ... }</code>: Comenzamos un bloque de código dentro de un <code>try-catch</code>. Esto significa que estamos tratando de hacer algo que podría lanzar una excepción, y si lo hace, queremos manejar esa excepción en el bloque <code>catch</code>.</li>
+      <li><code>obj = (Profesor) super.clone();</code>: Aquí estamos usando el método <code>clone()</code> de la clase base (<code>Object</code>) para hacer una copia superficial del objeto actual. Estamos usando <code>super.clone()</code> para llamar al método <code>clone()</code> de la clase padre. Luego, lo convertimos al tipo <code>Profesor</code> ya que <code>clone()</code> devuelve un objeto de tipo <code>Object</code>.</li>
+      <li><code>obj.modulos = new HashSet<>();</code>: Estamos inicializando un nuevo conjunto (<code>HashSet</code>) llamado <code>modulos</code> dentro del objeto <code>obj</code>. Este conjunto se utiliza para almacenar los módulos del profesor.</li>
+      <li><code>for (Modulo modulo : this.modulos) { ... }</code>: Aquí estamos iterando sobre cada módulo en el conjunto de módulos (<code>this.modulos</code>) del objeto actual.</li>
+      <li><code>obj.modulos.add((Modulo) modulo.clone());</code>: Dentro del bucle, estamos haciendo una copia de cada módulo usando su método <code>clone()</code> (asumiendo que <code>Modulo</code> también implementa el método <code>clone()</code> correctamente) y agregándolo al conjunto de módulos del objeto <code>obj</code>.</li>
+    </ol>
+    <p>En resumen, este método <code>clone()</code> crea una copia del objeto actual y también realiza copias de todos los módulos asociados con ese objeto. Es importante tener en cuenta que esta es una copia superficial, lo que significa que los objetos dentro de los módulos se copiarán por referencia y no se crearán nuevas copias de ellos. Si necesitas una copia profunda, donde los objetos dentro de los módulos también se copian, tendrías que implementar una lógica de clonación más compleja en la clase <code>Modulo</code>.</p>
+  </div>
+</div>
+    </body>
+</html>
